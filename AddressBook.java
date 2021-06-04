@@ -3,8 +3,8 @@ package com.Bridgelab.AddressBook;
 /*************************
  * 
  * @author ANAND
- *  program:AddressBookUC3 
- *  purpose: edit the contact
+ *  program:AddressBookUC4 
+ *  purpose: Delete contact
  *  
  *
  ***************************/
@@ -138,6 +138,20 @@ public class AddressBook {
 		AddressBookContacts contact = new AddressBookContacts(fName, lName, address, city, state, email, zip, phoneNo);
 		return contact;
 	}
+	// Creating a Method and Deleting Contact with Using First Name
+	public void deleteContact() 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter First Name of Contact to Delete it");
+		String cName = sc.nextLine();
+		AddressBookContacts editContact = addressContactList.get(cName.indexOf(cName));
+		if (editContact.getFirstName().equals(cName)) {
+
+			addressContactList.remove(editContact);
+		} else {
+			System.out.println("No such Contact to Delete");
+		}
+	}
 
 	// Main method
 	public static void main(String[] args) {
@@ -150,7 +164,7 @@ public class AddressBook {
 
 		// Checking a Choice with Switch Statement
 		while (true) {
-			System.out.println("1.Adding Contact \n2.Edit Contact \n3.Exit");
+			System.out.println("1.Adding Contact \n2.Edit Contact \n3.Delete \n4.Exit");
 			System.out.println("Enter a Your Choice :");
 			ch = sc.nextInt();
 
@@ -167,6 +181,11 @@ public class AddressBook {
 				break;
 
 			case 3:
+				ab.deleteContact();
+				System.out.println("Contact deleted Successfully");
+				break;
+
+			case 4:
 				System.out.println("you have choosen choice to exit");
 				return;
 

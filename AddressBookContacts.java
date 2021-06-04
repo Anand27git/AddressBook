@@ -2,14 +2,12 @@ package com.Bridgelab.AddressBook;
 
 /****************************
  * 
- * @author ANAND
- * program:AddressBookUC3 
- * purpose: edit the contact
+ * @author ANAND program:AddressBookUC4 purpose: Delete contact
  *
  ****************************/
 
 public class AddressBookContacts {
-	//declaring variables
+	// declaring variables
 	public String firstName, lastName, address, city, state, email;
 	public long zip;
 	public long phoneNo;
@@ -25,7 +23,8 @@ public class AddressBookContacts {
 		this.zip = zip;
 		this.phoneNo = phoneNo;
 	}
-	//using getter and setter methods
+
+	// using getter and setter methods
 	public String getFirstName() {
 		return firstName;
 	}
@@ -89,6 +88,7 @@ public class AddressBookContacts {
 	public void setPhoneNo(long phoneNo) {
 		this.phoneNo = phoneNo;
 	}
+
 	// using to string method
 	@Override
 	public String toString() {
