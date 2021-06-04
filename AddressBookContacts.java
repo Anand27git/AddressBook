@@ -1,10 +1,10 @@
 package com.Bridgelab.AddressBook;
 
-/****************************
+/*****************************
  * 
  * @author ANAND
- * program:AddressBookUC1 
- * purpose: create contact
+ * program:AddressBookUC2 
+ * purpose: add new contact
  *
  ****************************/
 
