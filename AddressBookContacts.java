@@ -1,15 +1,15 @@
 package com.Bridgelab.AddressBook;
 
-/*****************************
+/****************************
  * 
  * @author ANAND
- * program:AddressBookUC2 
- * purpose: add new contact
+ * program:AddressBookUC3 
+ * purpose: edit the contact
  *
  ****************************/
 
 public class AddressBookContacts {
-
+	//declaring variables
 	public String firstName, lastName, address, city, state, email;
 	public long zip;
 	public long phoneNo;
@@ -82,11 +82,11 @@ public class AddressBookContacts {
 		this.email = email;
 	}
 
-	public void setZip(int zip) {
+	public void setZip(long zip) {
 		this.zip = zip;
 	}
 
-	public void setPhoneNo(int phoneNo) {
+	public void setPhoneNo(long phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 	// using to string method
