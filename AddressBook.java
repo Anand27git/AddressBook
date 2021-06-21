@@ -4,7 +4,7 @@ package com.Bridgelab.AddressBook;
  * 
  * @author ANAND
  *  program:AddressBookUC4 
- *  purpose: Delete contact
+ *  purpose: Duplicate contact
  *  
  *
  ***************************/
@@ -173,68 +173,15 @@ public class AddressBook {
 		}
 	}
 
-	// Main method
-	public static void main(String[] args) {
 
-		System.out.println("Welcome to the Address Book System");
-		int ch = 0;
-		Scanner sc = new Scanner(System.in);
-		// Creating a Object for Main Class
-		AddressBook ab = new AddressBook();
-		System.out.println("welcome and create address books ");
-		AdressBookManage addBookManage = new AdressBookManage();
-		addBookManage.createAddBooks();
-		System.out.println("Successfully created address books");
-		addBookManage.viewAddBooks();
-
-		// Checking a Choice with Switch Statement
-		while (true) {
-			System.out.println("1.Adding Contact \n2.Edit Contact \n3.Delete \n4.check duplicate \n 5 .exit");
-			System.out.println("Enter a Your Choice :");
-			ch = sc.nextInt();
-
-			switch (ch) {
-			case 1:
-				AddressBookContacts addressContactDetails = ab.getContactInput();
-				ab.addContact(addressContactDetails);
-
-				System.out.println("Contact Added Successfully");
-				break;
-			case 2:
-				ab.editContact();
-				System.out.println("Contact Updated Successfully");
-				break;
-
-			case 3:
-				ab.deleteContact();
-				System.out.println("Contact deleted Successfully");
-				break;
-				
-			case 4:
-				System.out.println("removed duplicate contact Successfully");
-				ab.duplicateContact();
-				break;
-
-			case 5:
-				System.out.println("you have choosen choice to exit");
-				return;
-
-			default:
-				System.out.println("Please Enter Valid Choice");
-
-			}
-		}
-
-	}
-//Method to create addressbook uc-6
-public AddressBook addressBookOption() {
+	//Adressbook uc-6
+	public AddressBook addressBookOption() {
 	Scanner sc = new Scanner(System.in);
 	System.out.println("Welcome to the address book system. Choose your option");
 	AddressBook addBook = new AddressBook();
 	boolean runLoop = true;
 	while(runLoop) {
-		System.out.println("Press 1 for adding contact \n "
-				+ "\nPress 2 to edit a contact \nPress 3 to delete a contact \nPress 4 to exit");
+		System.out.println("Press 1 for adding contact\nPress 2 to edit a contact\nPress 3 to delete a contact\nPress 4 Duplicate Person Name\n Press 5 to exit");
 		int ch = sc.nextInt();
 		
 		switch(ch) {
@@ -251,8 +198,12 @@ public AddressBook addressBookOption() {
 			case 3: System.out.println("---- Delete a contact---");
 					addBook.deleteContact();
 					break;
+
+			 case 4: System.out.println("---- Duplicate persons---");
+                                        addBook.duplicateContact();
+                                        break;
 					
-			case 4: System.out.println("exit");
+			case 5: System.out.println("exit");
 					runLoop = false;
 					break;
 					
