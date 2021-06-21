@@ -10,15 +10,21 @@ package com.Bridgelab.AddressBook;
  ***************************/
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class AddressBook {
 
 	private ArrayList<AddressBookContacts> addressContactList;
-
+    private Map<String, AddressBookContacts> nameToContactDetailsMap;
+	
+	
+	
 	public AddressBook() {
 		// Initializing ArrayList
 		addressContactList = new ArrayList<AddressBookContacts>();
+		nameToContactDetailsMap = new HashMap<>();
 	}
 
 	public void addContact(AddressBookContacts createPerson) {
@@ -138,9 +144,9 @@ public class AddressBook {
 		AddressBookContacts contact = new AddressBookContacts(fName, lName, address, city, state, email, zip, phoneNo);
 		return contact;
 	}
+
 	// Creating a Method and Deleting Contact with Using First Name
-	public void deleteContact() 
-	{
+	public void deleteContact() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter First Name of Contact to Delete it");
 		String cName = sc.nextLine();
@@ -161,6 +167,11 @@ public class AddressBook {
 		Scanner sc = new Scanner(System.in);
 		// Creating a Object for Main Class
 		AddressBook ab = new AddressBook();
+		System.out.println("welcome and create address books ");
+		AdressBookManage addBookManage = new AdressBookManage();
+		addBookManage.createAddBooks();
+		System.out.println("Successfully created address books");
+		addBookManage.viewAddBooks();
 
 		// Checking a Choice with Switch Statement
 		while (true) {
@@ -196,5 +207,41 @@ public class AddressBook {
 		}
 
 	}
-
+//Method to create addressbook uc-6
+public AddressBook addressBookOption() {
+	Scanner sc = new Scanner(System.in);
+	System.out.println("Welcome to the address book system. Choose your option");
+	AddressBook addBook = new AddressBook();
+	boolean runLoop = true;
+	while(runLoop) {
+		System.out.println("Press 1 for adding contact \n "
+				+ "\nPress 2 to edit a contact \nPress 3 to delete a contact \nPress 4 to exit");
+		int ch = sc.nextInt();
+		
+		switch(ch) {
+			case 1: System.out.println("---- Add contact details ---- ");
+					AddressBookContacts contactPerson = addBook.getContactInput();
+					addBook.addContact(contactPerson);
+					System.out.println("Contact added for " + contactPerson.firstName + " " + contactPerson.lastName);
+					break;
+					
+			case 2: System.out.println("---- Editing contacts---");
+					addBook.editContact();
+					break;
+			
+			case 3: System.out.println("---- Delete a contact---");
+					addBook.deleteContact();
+					break;
+					
+			case 4: System.out.println("exit");
+					runLoop = false;
+					break;
+					
+			default: System.out.println("No correct option chosen");
+				
+			
+		}
+	}
+	return addBook;
+}
 }
