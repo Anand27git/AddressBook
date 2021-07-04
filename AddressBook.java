@@ -4,7 +4,7 @@ package com.Bridgelab.AddressBook;
  * 
  * @author ANAND
  *  program:AddressBookUC4 
- *  purpose: Duplicate contact
+ *  purpose: Delete contact
  *  
  *
  ***************************/
@@ -16,11 +16,9 @@ import java.util.Scanner;
 
 public class AddressBook {
 
-	private ArrayList<AddressBookContacts> addressContactList;
-    private Map<String, AddressBookContacts> nameToContactDetailsMap;
-	
-	
-	
+	ArrayList<AddressBookContacts> addressContactList;
+	Map<String, AddressBookContacts> nameToContactDetailsMap;
+
 	public AddressBook() {
 		// Initializing ArrayList
 		addressContactList = new ArrayList<AddressBookContacts>();
@@ -158,60 +156,46 @@ public class AddressBook {
 			System.out.println("No such Contact to Delete");
 		}
 	}
-	
-	// method to check duplicate of contacts Uc-7
-	public void duplicateContact() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter a person Name:");
-		String firstName = sc.nextLine();
-		for (int i = 0; i < addressContactList.size(); i++) {
-			AddressBookContacts model = addressContactList.get(i);
 
-			if (addressContactList.get(i).getFirstName().equals(firstName)) {
-				System.out.println("Contact Already Exist, Please add another contact");
+	// Method to create addressbook uc-6
+	public AddressBook addressBookOption() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Welcome to the address book system. Choose your option");
+		AddressBook addBook = new AddressBook();
+		boolean runLoop = true;
+		while (runLoop) {
+			System.out.println(
+					"Press 1 for adding contact\nPress:2 to edit a contact\nPress:3 to delete a contact\n press 4 to exit");
+			int ch = sc.nextInt();
+
+			switch (ch) {
+			case 1:
+				System.out.println("---- Add contact details ---- ");
+				AddressBookContacts contactPerson = addBook.getContactInput();
+				addBook.addContact(contactPerson);
+				System.out.println("Contact added for " + contactPerson.firstName + " " + contactPerson.lastName);
+				break;
+
+			case 2:
+				System.out.println("---- Editing contacts---");
+				addBook.editContact();
+				break;
+
+			case 3:
+				System.out.println("---- Delete a contact---");
+				addBook.deleteContact();
+				break;
+			
+			case 4:
+				System.out.println("exit");
+				runLoop = false;
+				break;
+
+			default:
+				System.out.println("No correct option chosen");
+
 			}
 		}
+		return addBook;
 	}
-
-
-	//Adressbook uc-6
-	public AddressBook addressBookOption() {
-	Scanner sc = new Scanner(System.in);
-	System.out.println("Welcome to the address book system. Choose your option");
-	AddressBook addBook = new AddressBook();
-	boolean runLoop = true;
-	while(runLoop) {
-		System.out.println("Press 1 for adding contact\nPress 2 to edit a contact\nPress 3 to delete a contact\nPress 4 Duplicate Person Name\n Press 5 to exit");
-		int ch = sc.nextInt();
-		
-		switch(ch) {
-			case 1: System.out.println("---- Add contact details ---- ");
-					AddressBookContacts contactPerson = addBook.getContactInput();
-					addBook.addContact(contactPerson);
-					System.out.println("Contact added for " + contactPerson.firstName + " " + contactPerson.lastName);
-					break;
-					
-			case 2: System.out.println("---- Editing contacts---");
-					addBook.editContact();
-					break;
-			
-			case 3: System.out.println("---- Delete a contact---");
-					addBook.deleteContact();
-					break;
-
-			 case 4: System.out.println("---- Duplicate persons---");
-                                        addBook.duplicateContact();
-                                        break;
-					
-			case 5: System.out.println("exit");
-					runLoop = false;
-					break;
-					
-			default: System.out.println("No correct option chosen");
-				
-			
-		}
-	}
-	return addBook;
-}
 }
