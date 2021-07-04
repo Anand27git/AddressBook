@@ -95,7 +95,7 @@ public class AddressBookContacts {
 	// using to string method
 	@Override
 	public String toString() {
-		return "ModelContactDetails [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
+		return "Contact Details of person [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address
 				+ ", city=" + city + ", state=" + state + ", email=" + email + ", zip=" + zip + ", phoneNo=" + phoneNo
 				+ "]";
 	}
