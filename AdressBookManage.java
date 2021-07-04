@@ -11,15 +11,12 @@ public class AdressBookManage {
 	private Map<String, AddressBook> nameToAddressBookMap;
 	List<AddressBookContacts> valuePrinted = null;
 	private int countPerson;
-
 	public AdressBookManage() {
 		nameToAddressBookMap = new HashMap<>();
 	}
-
 	public void addAddressBook(String addBookName, AddressBook addBook) {
 		nameToAddressBookMap.put(addBookName, addBook);
 	}
-
 	public boolean createAddBooks() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the num of address books to create");
