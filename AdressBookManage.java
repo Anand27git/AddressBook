@@ -11,12 +11,15 @@ public class AdressBookManage {
 	private Map<String, AddressBook> nameToAddressBookMap;
 	List<AddressBookContacts> valuePrinted = null;
 	private int countPerson;
+
 	public AdressBookManage() {
 		nameToAddressBookMap = new HashMap<>();
 	}
+
 	public void addAddressBook(String addBookName, AddressBook addBook) {
 		nameToAddressBookMap.put(addBookName, addBook);
 	}
+
 	public boolean createAddBooks() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the num of address books to create");
@@ -25,7 +28,7 @@ public class AdressBookManage {
 
 		for (int i = 0; i < num; i++) {
 			int serialNo = i + 1;
-			System.out.println("Enter the name of add. book num. " + serialNo);
+			System.out.println("Enter the name of address book number. " + serialNo);
 			String aBookName = sc.nextLine();
 			AddressBook addBookObj = new AddressBook();
 			addBookObj = addBookObj.addressBookOption();
